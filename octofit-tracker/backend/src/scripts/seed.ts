@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+import { connectToDatabase } from '../database';
 import { Activity, LeaderboardEntry, Team, User, Workout } from '../models';
 
 // Seed the octofit_db database with test data
 const seed = async () => {
-  await mongoose.connect('mongodb://127.0.0.1:27017/octofit_db');
+  await connectToDatabase();
   console.log('Seed the octofit_db database with test data');
 
   await Promise.all([

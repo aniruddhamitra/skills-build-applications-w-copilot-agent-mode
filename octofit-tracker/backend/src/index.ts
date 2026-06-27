@@ -1,6 +1,6 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import { Activity, LeaderboardEntry, Team, User, Workout } from './models';
+import { connectToDatabase } from './database';
 
 const app = express();
 const port = 8000;
@@ -108,7 +108,7 @@ app.post(['/api/workouts', '/api/workouts/'], async (req, res) => {
 
 const start = async () => {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/octofit_db');
+    await connectToDatabase();
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection failed', error);

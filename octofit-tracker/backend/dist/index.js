@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const mongoose_1 = __importDefault(require("mongoose"));
 const models_1 = require("./models");
+const database_1 = require("./database");
 const app = (0, express_1.default)();
 const port = 8000;
 const codespaceName = process.env.CODESPACE_NAME;
@@ -108,7 +108,7 @@ app.post(['/api/workouts', '/api/workouts/'], async (req, res) => {
 });
 const start = async () => {
     try {
-        await mongoose_1.default.connect('mongodb://127.0.0.1:27017/octofit_db');
+        await (0, database_1.connectToDatabase)();
         console.log('Connected to MongoDB');
     }
     catch (error) {
