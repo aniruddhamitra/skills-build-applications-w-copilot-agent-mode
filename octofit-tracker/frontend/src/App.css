@@ -1,0 +1,17 @@
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+.hero-card {
+  background: linear-gradient(120deg, #0f172a 0%, #1d4ed8 100%);
+  color: white;
+}
+
+.hero-card .lead {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.card {
+  border-radius: 1rem;
+}
